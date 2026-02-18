@@ -12,9 +12,9 @@
 
   /* Optional extended palette */
   --color-accent-light: #ff771df5; /* lighter orange */
-  --color-accent-dark: #ff6600;  /* deeper orange */
+  --color-accent-dark: #ff6600; /* deeper orange */
   --color-accent-shadow: rgba(255, 140, 0, 0.5);
-  --color-grey: #a5a5ad;         /* mid-grey for borders/secondary text */
+  --color-grey: #a5a5ad; /* mid-grey for borders/secondary text */
 }
 
 .audiowide-regular {
@@ -23,12 +23,11 @@
   font-style: normal;
 }
 
-
-.body-text {
+.body-text,
+* {
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
   font-weight: <weight>;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
+  font-variation-settings: "wdth" 100;
 }
