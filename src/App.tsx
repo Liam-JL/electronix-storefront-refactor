@@ -1,7 +1,10 @@
+import Landing from "./pages/Landing";
+
+
 function App() {
   return (
     <>
-      <p className="audiowide-regular">App</p>
+      <Landing />
     </>
   );
 }
