@@ -1,7 +1,7 @@
 function App() {
   return (
     <>
-      <p>App</p>
+      <p className="audiowide-regular">App</p>
     </>
   );
 }
