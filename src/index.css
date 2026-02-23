@@ -31,3 +31,19 @@
   font-style: normal;
   font-variation-settings: "wdth" 100;
 }
+
+@layer base {
+  h2 {
+    @apply text-2xl
+  }
+}
+
+@layer components {
+  .footer-link {
+    @apply flex items-center gap-2 justify-center
+  }
+
+  .footer-section {
+    @apply grid gap-2 justify-center 
+  }
+}
