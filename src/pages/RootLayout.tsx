@@ -3,11 +3,11 @@ import Navbar from "../components/Navbar";
 
 function RootLayout() {
   return (
-    <div>
+    <div className="flex flex-col h-screen">
       <header>
         <Navbar />
       </header>
-      <main>
+      <main className="flex justify-center items-center flex-1">
         <Outlet />
       </main>
       <footer></footer>
