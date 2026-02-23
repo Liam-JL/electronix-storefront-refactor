@@ -1,6 +1,6 @@
 function Store() {
   return (
-    <div className="landing flex justify-center items-center h-screen">
+    <div className="">
       <h1 className="font-bold text-xl">Store</h1>
     </div>
   );

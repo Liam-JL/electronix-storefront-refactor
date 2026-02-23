@@ -1,9 +1,11 @@
 function Landing() {
   return (
-    <div className="landing flex justify-center items-center h-screen">
+    <div>
       <h1 className="font-bold text-xl">Landing Page</h1>
     </div>
   );
 }
 
 export default Landing;
+
+// className="landing flex justify-center items-center h-screen"
