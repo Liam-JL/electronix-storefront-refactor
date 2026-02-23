@@ -1,5 +1,6 @@
 import {Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function RootLayout() {
   return (
@@ -10,7 +11,9 @@ function RootLayout() {
       <main className="flex justify-center items-center flex-1">
         <Outlet />
       </main>
-      <footer></footer>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }
