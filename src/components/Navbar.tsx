@@ -3,15 +3,13 @@ import {
   IoCartOutline as CartIcon,
   IoStorefrontOutline as ShopIcon,
 } from "react-icons/io5";
+import Logo from "./Logo";
 
 function Navbar() {
   return (
     <nav className="flex items-center justify-between pl-8 pr-8 p-6 shadow-lg">
-      <Link to={"/"} className="flex items-center gap-2">
-        <img src="logoipsum-light.svg" alt="Electronix Logo" />
-        <span className="hidden md:block text-4xl audiowide-regular">
-          Electronix
-        </span>
+      <Link to={"/"}>
+        <Logo size="large" variant="light" />
       </Link>
       <ul className="flex gap-4">
         <li>
