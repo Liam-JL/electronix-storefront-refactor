@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+/* Colors */
+:root {
+  /* Base colors */
+  --color-white: #ffffff;
+  --color-light-grey: #f8f6fc;
+  --color-black: #000000;
+
+  /* Accent (neon orange) */
+  --color-accent: #ff6600;
+
+  /* Optional extended palette */
+  --color-accent-light: #ff771df5; /* lighter orange */
+  --color-accent-dark: #ff6600; /* deeper orange */
+  --color-accent-shadow: rgba(255, 140, 0, 0.5);
+  --color-grey: #a5a5ad; /* mid-grey for borders/secondary text */
+}
+
+.audiowide-regular {
+  font-family: "Audiowide", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.body-text,
+* {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
