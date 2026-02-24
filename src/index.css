@@ -1,25 +1,26 @@
 @import "tailwindcss";
 
-/* Colors */
-:root {
-  /* Base colors */
-  --color-white: #ffffff;
-  --color-light-grey: #f8f6fc;
-  --color-black: #000000;
-
-  /* Accent (neon orange) */
-  --color-accent: #ff6600;
-
-  /* Optional extended palette */
+@theme {
+  --color-electronix-white: #ffffff;
+  --color-electronix-grey: #a5a5ad;
+  --color-electronix-light-grey: #f8f6fc;
+  --color-electronix-black: #000000;
+  --color-accent: #ff6600; /* neon orange */
   --color-accent-light: #ff771df5; /* lighter orange */
-  --color-accent-dark: #ff6600; /* deeper orange */
+  --color-accent-dark: #e85607; /* deeper orange */
   --color-accent-shadow: rgba(255, 140, 0, 0.5);
-  --color-grey: #a5a5ad; /* mid-grey for borders/secondary text */
 }
 
 .audiowide-regular {
   font-family: "Audiowide", sans-serif;
   font-weight: 400;
+  font-style: normal;
+}
+
+.orbitron {
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
   font-style: normal;
 }
 
@@ -33,21 +34,29 @@
 }
 
 @layer base {
+  h1 {
+    @apply text-3xl;
+  }
+
   h2 {
-    @apply text-2xl
+    @apply text-2xl;
   }
 }
 
 @layer components {
   .footer-link {
-    @apply flex items-center gap-2 justify-center md:justify-start
+    @apply flex items-center gap-2 justify-center md:justify-start;
   }
 
   .footer-header {
-    @apply flex justify-center md:justify-start
+    @apply flex justify-center md:justify-start;
   }
 
   .footer-section {
-    @apply grid justify-center md:justify-start
+    @apply grid justify-center md:justify-start;
+  }
+
+  .button {
+    @apply px-4 py-2 rounded-xl font-medium transition cursor-pointer w-full; 
   }
 }
