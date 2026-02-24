@@ -1,6 +1,7 @@
-import {Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Searchbar from "../components/Searchbar";
 
 function RootLayout() {
   return (
@@ -8,7 +9,10 @@ function RootLayout() {
       <header>
         <Navbar />
       </header>
-      <main className="flex justify-center items-center flex-1">
+      <main className="flex flex-col flex-1 p-8 items-center gap-8">
+        <div className="md:hidden">
+          <Searchbar />
+        </div>
         <Outlet />
       </main>
       <footer>

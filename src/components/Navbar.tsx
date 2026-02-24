@@ -4,6 +4,7 @@ import {
   IoStorefrontOutline as ShopIcon,
 } from "react-icons/io5";
 import Logo from "./Logo";
+import Searchbar from "./Searchbar";
 
 function Navbar() {
   return (
@@ -11,6 +12,9 @@ function Navbar() {
       <Link to={"/"}>
         <Logo size="large" variant="light" />
       </Link>
+      <div className="hidden md:block">
+        <Searchbar />
+      </div>
       <ul className="flex gap-4">
         <li>
           <Link to={"/store"} className="flex flex-col items-center">
