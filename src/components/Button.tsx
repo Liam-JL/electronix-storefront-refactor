@@ -28,7 +28,7 @@ function Button({
       disabled={disabled}
       aria-label={accessibilityLabel}
       className={`
-        px-4 py-2 rounded-xl font-medium cursor-pointer w-full transition-none md:transition-all duration-300 ease-in-out
+        px-4 py-2 rounded-xl font-medium cursor-pointer w-full transition-none md:transition-all duration-300 ease-in-out hover:scale-101
         ${bgColor} ${textColor} ${bgHoverColor} ${textHoverColor}
         disabled:opacity-50 disabled:cursor-not-allowed
         ${className}
