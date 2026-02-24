@@ -9,12 +9,12 @@ import { Link } from "react-router";
 
 function Footer() {
   return (
-    <div className="bg-(--color-black) text-(--color-white) p-4 flex flex-col gap-4">
+    <div className="bg-(--color-black) text-(--color-white) p-4 flex flex-col md:flex-row justify-center gap-8 md:gap-16 lg:gap-32">
       <section className="footer-section">
-        <span className="flex justify-center">
+        <span className="footer-header">
           <Logo size="small" variant="dark" />
         </span>
-        <span>
+        <span className="text-center md:text-start">
           This is not a real store. This is a demo React e-commerce front-end.
           Repository on{" "}
           <a
@@ -27,7 +27,7 @@ function Footer() {
       </section>
 
       <section className="footer-section">
-        <h2 className="flex justify-center">Useful Links</h2>
+        <h2 className="footer-header">Useful Links</h2>
         <ul>
           <li className="footer-link">
             <a href="#" title="Page under construction">
@@ -49,7 +49,7 @@ function Footer() {
       </section>
 
       <section className="footer-section">
-        <h2 className="flex justify-center">Contact Us</h2>
+        <h2 className="footer-header">Contact Us</h2>
         <ul>
           <li className="footer-link">
             <MailIcon />
