@@ -8,11 +8,11 @@ import Searchbar from "./Searchbar";
 
 function Navbar() {
   return (
-    <nav className="flex items-center justify-between pl-8 pr-8 p-6 shadow-lg">
+    <nav className="flex items-center justify-between pl-8 pr-8 p-6 shadow-lg gap-8">
       <Link to={"/"}>
         <Logo size="large" variant="light" />
       </Link>
-      <div className="hidden md:block">
+      <div className="hidden md:block grow lg:-translate-x-[7%]">
         <Searchbar />
       </div>
       <ul className="flex gap-4">
