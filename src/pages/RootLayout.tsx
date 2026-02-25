@@ -9,8 +9,8 @@ function RootLayout() {
       <header>
         <Navbar />
       </header>
-      <main className="flex flex-col flex-1 p-8 items-center gap-8">
-        <div className="md:hidden">
+      <main className="flex flex-col flex-1 p-8 justify-center items-center gap-8">
+        <div className="md:hidden w-full">
           <Searchbar />
         </div>
         <Outlet />
