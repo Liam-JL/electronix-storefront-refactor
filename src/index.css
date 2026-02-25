@@ -11,6 +11,17 @@
   --color-accent-shadow: rgba(255, 140, 0, 0.5);
 }
 
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .audiowide-regular {
   font-family: "Audiowide", sans-serif;
   font-weight: 400;
@@ -57,6 +68,6 @@
   }
 
   .button {
-    @apply px-4 py-2 rounded-xl font-medium transition cursor-pointer w-full; 
+    @apply px-4 py-2 rounded-xl font-medium transition cursor-pointer w-full;
   }
 }
