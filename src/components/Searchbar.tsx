@@ -19,7 +19,7 @@ function Searchbar() {
         name="search"
         placeholder="Search products..."
         autoComplete="off"
-        className="border-2 border-solid rounded-xl pl-4 pr-4 max-w-100 min-w-60"
+        className="border-2 border-solid rounded-xl pl-4 pr-4 w-full max-w-[500px]"
       />
       <button type="submit" className="">
         <SearchIcon className="w-6 h-auto" />
