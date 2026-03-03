@@ -5,7 +5,7 @@ import {
   Route,
 } from "react-router-dom";
 
-import { productsLoader } from "./pages/Store";
+import { productsLoader } from "./pages/loaders/product.loader";
 
 //Pages
 import RootLayout from "./pages/RootLayout";

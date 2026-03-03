@@ -1,13 +1,24 @@
 import { useLoaderData } from "react-router";
-import { products } from "../data/products.json" assert { type: "json" };
+import ProductCard from "../components/ProductCard";
+
+export type Product = {
+  id: number;
+  title: string;
+  description: string;
+  category: string;
+  price: number;
+  stock: number;
+  availabilityStatus: string;
+  images: string[];
+  thumbnail: string;
+};
 
 function Store() {
-  const products = useLoaderData();
-  
+  const products = useLoaderData() as Product[];
 
   return (
     <div className="store">
-      <header>
+      <header className="text-center">
         <h1>Our Collection</h1>
         <p>
           Explore the latest electronics, hand-picked to power your everyday
@@ -16,8 +27,10 @@ function Store() {
       </header>
       <section>
         <div className="filter-bar"></div>
-        <div className="product-grid">
-          {products.map(product => <p>{product.title}</p>)}
+        <div className="product-grid grid gap-4">
+          {products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
         </div>
       </section>
     </div>
@@ -25,9 +38,3 @@ function Store() {
 }
 
 export default Store;
-
-//loader function
-export const productsLoader = async () => {
-  await new Promise((resolve) => setTimeout(resolve, 800)); //emulate 800ms delay
-  return products;
-};
