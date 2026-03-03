@@ -5,6 +5,8 @@ import {
   Route,
 } from "react-router-dom";
 
+import { productsLoader } from "./pages/loaders/product.loader";
+
 //Pages
 import RootLayout from "./pages/RootLayout";
 import Landing from "./pages/Landing";
@@ -14,7 +16,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Landing />} />
-      <Route path="store" element={<Store />} />
+      <Route path="store" element={<Store />} loader={productsLoader} />
     </Route>,
   ),
 );

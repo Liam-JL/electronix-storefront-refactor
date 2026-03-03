@@ -1,10 +1,7 @@
 type ButtonProps = {
   title: string;
   onPress: () => void;
-  bgColor?: string;
-  bgHoverColor?: string;
-  textColor?: string;
-  textHoverColor?: string;
+  defaultStyle?: boolean;     // make optional
   disabled?: boolean;
   accessibilityLabel?: string;
   className?: string;
@@ -13,10 +10,7 @@ type ButtonProps = {
 function Button({
   title,
   onPress,
-  bgColor = "bg-accent",
-  bgHoverColor = "hover:bg-accent-light",
-  textColor = "text-electronix-white",
-  textHoverColor = "text-electronix-white",
+  defaultStyle = true,
   disabled = false,
   accessibilityLabel,
   className = "",
@@ -28,9 +22,10 @@ function Button({
       disabled={disabled}
       aria-label={accessibilityLabel}
       className={`
-        px-4 py-2 rounded-xl font-medium cursor-pointer w-full transition-none md:transition-all duration-300 ease-in-out hover:scale-101
-        ${bgColor} ${textColor} ${bgHoverColor} ${textHoverColor}
+        px-4 py-2 rounded-xl font-medium cursor-pointer flex justify-center items-center
+        transition-all duration-200 ease-in-out hover:scale-105
         disabled:opacity-50 disabled:cursor-not-allowed
+        ${defaultStyle ? "bg-accent text-electronix-white hover:bg-accent-light" : ""}
         ${className}
       `}
     >
