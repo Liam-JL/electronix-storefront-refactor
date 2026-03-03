@@ -20,7 +20,7 @@ function ProductCard({ product }: ProductCardProps) {
   }
 
   return (
-    <article className="max-w-75 flex flex-col items-center border border-electronix-grey bg-electronix-white rounded-xl grow h-full hover:-translate-y-1 hover:shadow-xl  transition-all duration-200 ease-out">
+    <article className="max-w-75 flex flex-col items-center border border-electronix-grey bg-electronix-white rounded-xl grow h-full md:hover:-translate-y-1 hover:shadow-xl  transition-all duration-200 ease-out">
       <Link
         to={`:${product.id}`}
         onClick={() => window.scrollTo(0, 0)}
@@ -32,7 +32,7 @@ function ProductCard({ product }: ProductCardProps) {
           className="product-thumbnail"
         />
       </Link>
-      <div className="product-details p-4">
+      <div className="product-details p-4 grow w-full">
         <h2 className="font-medium">{product.title}</h2>
         <span className="text-accent font-bold text-xl">{`£${product.price}`}</span>
       </div>
