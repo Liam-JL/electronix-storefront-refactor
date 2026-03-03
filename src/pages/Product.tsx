@@ -1,7 +1,12 @@
+import { useLoaderData } from "react-router";
+import type { Product } from "./Store";
+
 function Product() {
+  const product: Product = useLoaderData();
+
   return (
     <div>
-      <h1 className="font-bold text-xl">Product</h1>
+      <h2>{product.title}</h2>
     </div>
   );
 }
