@@ -20,7 +20,11 @@ const router = createBrowserRouter(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Landing />} />
       <Route path="store" element={<Store />} loader={productsLoader} />
-      <Route path="store/:id" element={<Product />} loader={productDetailsLoader} />
+      <Route
+        path="store/:id"
+        element={<Product />}
+        loader={productDetailsLoader}
+      />
       <Route path="*" element={<Error />} />
     </Route>,
   ),

@@ -27,7 +27,7 @@ function Store() {
       </header>
       <section>
         <div className="filter-bar"></div>
-        <div className="product-grid grid gap-4 sm:grid-cols-2 md:grid-cols-3 justify-center mt-4">
+        <div className="product-grid grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center mt-4">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
