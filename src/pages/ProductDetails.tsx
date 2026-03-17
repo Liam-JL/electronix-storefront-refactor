@@ -3,7 +3,7 @@ import type { Product } from "./Store";
 import Button from "../components/Button";
 import { useState } from "react";
 
-function Product() {
+function ProductDetails() {
   const product: Product = useLoaderData();
   const navigate = useNavigate();
 
@@ -114,4 +114,4 @@ function Product() {
   );
 }
 
-export default Product;
+export default ProductDetails;

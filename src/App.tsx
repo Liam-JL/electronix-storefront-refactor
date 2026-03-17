@@ -13,7 +13,8 @@ import RootLayout from "./pages/RootLayout";
 import Landing from "./pages/Landing";
 import Store from "./pages/Store";
 import Error from "./pages/Error";
-import Product from "./pages/Product";
+import ProductDetails from "./pages/ProductDetails";
+import { CartProvider } from "./contexts/CartContext";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -22,7 +23,7 @@ const router = createBrowserRouter(
       <Route path="store" element={<Store />} loader={productsLoader} />
       <Route
         path="store/:id"
-        element={<Product />}
+        element={<ProductDetails />}
         loader={productDetailsLoader}
       />
       <Route path="*" element={<Error />} />
@@ -31,7 +32,11 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <CartProvider>
+      <RouterProvider router={router} />
+    </CartProvider>
+  );
 }
 
 export default App;
