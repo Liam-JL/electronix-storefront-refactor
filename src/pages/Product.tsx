@@ -8,7 +8,6 @@ function Product() {
   const navigate = useNavigate();
 
   const [currentQuantity, setCurrentQuantity] = useState(1);
-
   const [currentImage, setCurrentImage] = useState(product.images[0]);
 
   function increaseQuantity() {
@@ -19,49 +18,60 @@ function Product() {
     if (currentQuantity === 1) return;
     setCurrentQuantity(currentQuantity - 1);
   }
-  return (
-    <div className="flex lg:flex-row flex-col gap-8">
-      <section className="image-section flex border">
-        <div className="border">
-          <img src={currentImage} alt={product.title} className="" />
-        </div>
-        <div className="thumbnail-grid grid grid-cols-3 gap-4">
-          {product.images.map((image, index) => {
-            return (
-              <button
-                onClick={() => {
-                  setCurrentImage(product.images[index]);
-                }}
-              >
-                <img src={image}></img>
-              </button>
-            );
-          })}
-        </div>
-      </section>
 
-      <article className="flex flex-col flex-1">
-        <div className="details relative flex flex-col items-start gap-4 mb-4 border-b pb-4">
+  return (
+    <section className="grid grid-cols-1 md:grid-cols-[40%_60%] md:grid-rows-[1fr_auto] gap-4 p-4 h-full">
+      {/* Main Image */}
+      <div className="current-image-wrapper h-full max-h-100">
+        <img
+          src={currentImage}
+          alt={product.title}
+          className="h-full w-full object-contain rounded-lg"
+        />
+      </div>
+
+      {/* Thumbnails */}
+      <div className="thumbnail-grid md:row-start-2 grid grid-cols-3 gap-4 p-4">
+        {product.images.map((image, index) => {
+          return (
+            <button
+              key={index}
+              onClick={() => setCurrentImage(image)}
+              className="cursor-pointer border border-electronix-grey rounded-lg hover:border-accent overflow-hidden"
+            >
+              <img
+                src={image}
+                alt={`${product.title} thumbnail ${index + 1}`}
+                className="w-full h-full object-cover"
+              />
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Details */}
+      <article className="details-section md:row-span-2 flex flex-col gap-4 p-8 h-full bg-electronix-white rounded-xl border border-electronix-grey">
+        <Button
+          title="Back"
+          onPress={() => navigate(-1)}
+          className="self-end"
+        />
+
+        <div>
           <h1>{product.title}</h1>
           <span className="text-accent font-bold text-2xl">
             £{product.price}
           </span>
-          <Button
-            title="Back"
-            onPress={() => {
-              navigate(-1);
-            }}
-            className="absolute right-0 top-0"
-          />
         </div>
 
-        <p className="grow">{product.description}</p>
-        <footer className="flex p-4 border-t border-electronix-grey gap-4">
+        <p className="grow overflow-y-auto">{product.description}</p>
+
+        <footer className="flex p-4 border-t border-electronix-grey gap-8">
           <div className="quantity-wrapper grid grid-cols-3 flex-1">
-            <label
-              className="sr-only"
-              htmlFor={`quantity-${product.id}`}
-            >{`Quantity for: ${product.title}`}</label>
+            <label className="sr-only" htmlFor={`quantity-${product.id}`}>
+              {`Quantity for: ${product.title}`}
+            </label>
+
             <Button
               title="-"
               onPress={decreaseQuantity}
@@ -69,6 +79,7 @@ function Product() {
               accessibilityLabel="Decrease quantity"
               className="bg-electronix-light-grey border border-electronix-grey hover:text-accent"
             />
+
             <input
               type="number"
               min={1}
@@ -80,6 +91,7 @@ function Product() {
               }}
               className="text-center [appearance:textfield] [&::-webkit-outer-spin-button]:!appearance-none [&::-webkit-inner-spin-button]:!appearance-none [&::-webkit-outer-spin-button]:!m-0 [&::-webkit-inner-spin-button]:!m-0"
             />
+
             <Button
               title="+"
               onPress={increaseQuantity}
@@ -88,6 +100,7 @@ function Product() {
               className="bg-electronix-light-grey border border-electronix-grey hover:text-accent"
             />
           </div>
+
           <Button
             title="Add"
             onPress={() => {
@@ -97,7 +110,7 @@ function Product() {
           />
         </footer>
       </article>
-    </div>
+    </section>
   );
 }
 
