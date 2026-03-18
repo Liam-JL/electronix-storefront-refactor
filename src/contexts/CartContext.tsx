@@ -9,6 +9,7 @@ type CartContext = {
   increaseItemQuantity: (id: number) => void;
   decreaseItemQuantity: (id: number) => void;
   removeFromCart: (id: number) => void;
+  addItems: (id: number, quantity: number) => void;
 };
 
 type CartItem = {
@@ -67,6 +68,25 @@ export function CartProvider({ children }: CartProvderProps) {
     });
   }
 
+  function addItems(id: number, quantity: number) {
+    setCartItems((currentItems) => {
+      const existing = currentItems.find((item) => item.id === id);
+
+      if (!existing) {
+        return [...currentItems, { id, quantity: Math.min(quantity, 10) }];
+      }
+
+      return currentItems.map((item) =>
+        item.id === id
+          ? {
+              ...item,
+              quantity: Math.min(item.quantity + quantity, 10),
+            }
+          : item,
+      );
+    });
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -74,6 +94,7 @@ export function CartProvider({ children }: CartProvderProps) {
         increaseItemQuantity,
         decreaseItemQuantity,
         removeFromCart,
+        addItems,
       }}
     >
       {children}
