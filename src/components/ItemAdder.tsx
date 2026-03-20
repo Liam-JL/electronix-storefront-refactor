@@ -1,6 +1,7 @@
 import Button from "./Button";
 import type { Product } from "../pages/Store";
 import { useState } from "react";
+import { useCart } from "../contexts/CartContext";
 
 type ItemAdderProps = {
     product: Product
@@ -8,6 +9,7 @@ type ItemAdderProps = {
 
 function ItemAdder({product}: ItemAdderProps ) {
   const [currentQuantity, setCurrentQuantity] = useState(1);
+  const {addItems} = useCart();
 
   function increaseQuantity() {
     if (currentQuantity < 10) setCurrentQuantity(currentQuantity + 1);
@@ -57,7 +59,7 @@ function ItemAdder({product}: ItemAdderProps ) {
       <Button
         title="Add"
         onPress={() => {
-          console.log("Add button pressed");
+          addItems(product.id, currentQuantity);
         }}
         className="flex-1"
       />
