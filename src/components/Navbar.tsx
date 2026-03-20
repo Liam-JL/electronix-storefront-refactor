@@ -5,6 +5,7 @@ import {
 } from "react-icons/io5";
 import Logo from "./Logo";
 import Searchbar from "./Searchbar";
+import CartChip from "./CartChip";
 
 function Navbar() {
   return (
@@ -26,6 +27,7 @@ function Navbar() {
           <Link to={"/cart"} className="flex flex-col items-center">
             <CartIcon className="h-6 w-6" />
             <span>CART</span>
+            <CartChip className="absolute top-0 right-0 -translate-x-[50%] translate-y-[50%]" />
           </Link>
         </li>
       </ul>
