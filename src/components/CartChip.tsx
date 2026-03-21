@@ -7,11 +7,13 @@ type CartChipProps = {
 function CartChip({ className = "" }: CartChipProps) {
   const { cartQuantity } = useCart();
   return (
-    <div
-      className={`text-electronix-white bg-accent w-6 h-6 text-sm rounded-4xl flex justify-center items-center ${className}`}
-    >
-      {cartQuantity}
-    </div>
+    cartQuantity > 0 && (
+      <div
+        className={`text-electronix-white bg-accent w-6 h-6 text-sm rounded-4xl flex justify-center items-center ${className}`}
+      >
+        {cartQuantity}
+      </div>
+    )
   );
 }
 
