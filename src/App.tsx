@@ -13,6 +13,7 @@ import RootLayout from "./pages/RootLayout";
 import Landing from "./pages/Landing";
 import Store from "./pages/Store";
 import Error from "./pages/Error";
+import Cart from "./pages/Cart";
 import ProductDetails from "./pages/ProductDetails";
 import { CartProvider } from "./contexts/CartContext";
 
@@ -21,6 +22,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Landing />} />
       <Route path="store" element={<Store />} loader={productsLoader} />
+      <Route path="cart" element={<Cart />} loader={productsLoader} />
       <Route
         path="store/:id"
         element={<ProductDetails />}
