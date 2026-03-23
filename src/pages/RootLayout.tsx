@@ -9,7 +9,7 @@ function RootLayout() {
       <header className="bg-electronix-white shadow-md z-1">
         <Navbar />
       </header>
-      <main className="relative flex flex-col flex-1 p-8 justify-center items-center gap-8 bg-linear-to-br from-electronix-white to-electronix-light-grey z-0">
+      <main className="relative flex flex-col flex-1 p-4 md:p8 justify-center items-center gap-8 bg-linear-to-br from-electronix-white to-electronix-light-grey z-0">
         <div className="md:hidden w-full">
           <Searchbar />
         </div>

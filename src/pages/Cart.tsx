@@ -9,20 +9,21 @@ function Cart() {
   const products = useLoaderData() as Product[];
 
   return (
-    <div className="">
+    <div className="flex flex-col items-center">
       <h1>Cart</h1>
-      <p>
-        <CiDeliveryTruck /> You can choose your payment and delivery preferences
-        at checkout.
+      <p className="flex justify-center items-center gap-4 text-center md:mb-8">
+        <CiDeliveryTruck className="hidden md:inline" />
+        You can choose your payment and delivery preferences at checkout.
       </p>
-      <ul>
+      <CiDeliveryTruck className="md:hidden mb-4" />
+      <ul className="flex flex-col gap-4">
         {cartItems.map((item) => {
           const product = products.find((p) => p.id === item.id);
           if (!product) return null;
 
           return (
             <li>
-              <CartItemCard product={product} quantity={item.quantity} />
+              <CartItemCard key={item.id} product={product} quantity={item.quantity} />
             </li>
           );
         })}
