@@ -1,7 +1,9 @@
+import type { IconType } from "react-icons";
+
 type ButtonProps = {
-  title: string;
+  title: string | IconType;
   onPress: () => void;
-  defaultStyle?: boolean;     // make optional
+  defaultStyle?: boolean; // make optional
   disabled?: boolean;
   accessibilityLabel?: string;
   className?: string;
@@ -15,6 +17,8 @@ function Button({
   accessibilityLabel,
   className = "",
 }: ButtonProps) {
+  const content = typeof title === "string" ? title : title({});
+
   return (
     <button
       type="button"
@@ -29,7 +33,7 @@ function Button({
         ${className}
       `}
     >
-      {title}
+      <span>{content}</span>
     </button>
   );
 }
