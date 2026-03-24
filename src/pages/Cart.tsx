@@ -1,10 +1,19 @@
-import { useCart } from "../contexts/CartContext";
-import { useLoaderData } from "react-router";
+//Types
 import type { Product } from "./Store";
-import CartItemCard from "../components/CartItemCard";
+
+//Contexts
+import { useCart } from "../contexts/CartContext";
+
+//Icons
 import { CiDeliveryTruck } from "react-icons/ci";
+
+//Modules
+import { useLoaderData, useNavigate } from "react-router";
+
+//Components
 import Button from "../components/Button";
-import { useNavigate } from "react-router";
+import CartItemCard from "../components/CartItemCard";
+import Modal from "./Modal";
 
 function Cart() {
   const navigate = useNavigate();
@@ -68,7 +77,9 @@ function Cart() {
         />
       </aside>
 
-      <div className={`empty-cart-message flex flex-col items-center gap-4 col-span-2 ${cartItems.length > 0 && "hidden"}`}>
+      <div
+        className={`empty-cart-message flex flex-col items-center gap-4 col-span-2 ${cartItems.length > 0 && "hidden"}`}
+      >
         <span>Your cart is currently empty.</span>
         <Button
           title="Continue Shopping"
