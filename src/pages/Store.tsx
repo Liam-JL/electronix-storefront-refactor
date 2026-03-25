@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router";
 import ProductCard from "../components/ProductCard";
+import { useState } from "react";
 
 export type Product = {
   id: number;
@@ -13,8 +14,16 @@ export type Product = {
   thumbnail: string;
 };
 
+type Category =
+  | "laptops"
+  | "mobile-accessories"
+  | "smartphones"
+  | "tablets"
+  | "all";
+
 function Store() {
   const products = useLoaderData() as Product[];
+  const [category, setCategory] = useState<Category>("all");
 
   return (
     <div className="store">
@@ -28,9 +37,14 @@ function Store() {
       <section>
         <div className="filter-bar"></div>
         <div className="product-grid grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center mt-4">
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+          {products.map((product) => {
+            if (category === "all")
+              return <ProductCard key={product.id} product={product} />;
+
+            return product.category === category ? (
+              <ProductCard key={product.id} product={product} />
+            ) : null;
+          })}
         </div>
       </section>
     </div>
