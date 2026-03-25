@@ -16,7 +16,10 @@ function Modal({ open, onClose, children }: ModalProps) {
         className={`bg-white rounded-lg shadow p-6 transition-all max-w-md ${open ? "scale-100" : "scale-110 opacity-0"}`}
         onClick={(e) => e.stopPropagation()}
       >
-        <button className="absolute top-2 right-2 py-1 px-2 border border-electronix-grey text-electronix-black bg-electronix-white hover:bg-electronix-light-grey hover:text-accent">
+        <button
+          className="absolute top-2 right-2 py-1 px-2 border rounded-md border-electronix-grey text-electronix-black bg-electronix-white hover:bg-electronix-light-grey hover:text-accent flex justify-center items-center text-[10px]"
+          onClick={onClose}
+        >
           X
         </button>
         {children}

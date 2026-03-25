@@ -9,13 +9,15 @@ import { CiDeliveryTruck } from "react-icons/ci";
 
 //Modules
 import { useLoaderData, useNavigate } from "react-router";
+import { useState } from "react";
 
 //Components
 import Button from "../components/Button";
 import CartItemCard from "../components/CartItemCard";
-import Modal from "./Modal";
+import Modal from "../components/Modal";
 
 function Cart() {
+  const [openModal, setOpenModal] = useState<boolean>(false);
   const navigate = useNavigate();
   const { cartItems } = useCart();
   const products = useLoaderData() as Product[];
@@ -71,10 +73,7 @@ function Cart() {
           <span>Total:</span>
           <span className="font-bold">{`£${(cartSubtotal + deliveryCost).toFixed(2)}`}</span>
         </span>
-        <Button
-          title="Checkout"
-          onPress={() => console.log("checkout button pressed")}
-        />
+        <Button title="Checkout" onPress={() => setOpenModal(true)} />
       </aside>
 
       <div
@@ -89,6 +88,32 @@ function Cart() {
           accessibilityLabel="Go to Store"
         />
       </div>
+
+      <Modal open={openModal} onClose={() => setOpenModal(false)}>
+        <div className="flex flex-col justify-center items-center gap-4">
+          <img
+            className="rounded-[50%] h-20 w-20"
+            src="https://avatars.githubusercontent.com/u/48105423?s=400&u=4a19feb6b185ec70a730eba94b920e9d634f1f9a&v=4"
+            alt="LiamLJ Github profile picture"
+          />
+          <p>
+            Thank you for checking out this demo e-commerce app. You can explore
+            more of my projects on my{" "}
+            <a className="underline" href="https://github.com/Liam-JL">
+              GitHub
+            </a>
+            .{" "}
+            <span role="img" aria-label="smile">
+              😊
+            </span>
+          </p>
+          <Button
+            title="Continue"
+            className=""
+            onPress={() => setOpenModal(false)}
+          />
+        </div>
+      </Modal>
     </div>
   );
 }
