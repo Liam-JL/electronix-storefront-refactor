@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Searchbar from "../components/Searchbar";
+// import Searchbar from "../components/Searchbar";
 
 function RootLayout() {
   return (
@@ -11,7 +11,7 @@ function RootLayout() {
       </header>
       <main className="relative flex flex-col flex-1 p-4 md:p8 justify-center items-center gap-8 bg-linear-to-br from-electronix-white to-electronix-light-grey z-0">
         <div className="md:hidden w-full">
-          <Searchbar />
+          {/* <Searchbar /> */}
         </div>
         <Outlet />
         <div className="page-background fixed inset-0  w-full h-full bg-[url(circuit-board.svg)] -z-10 mask-[linear-gradient(to_bottom_right,transparent_50%,black_100%)] [-webkit-mask-image:linear-gradient(to_bottom_right,transparent_55%,black_100%)]"></div>
