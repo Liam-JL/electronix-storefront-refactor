@@ -9,14 +9,11 @@ import CartChip from "./CartChip";
 
 function Navbar() {
   return (
-    <nav className="flex items-center justify-between pl-8 pr-8 p-6 shadow-lg gap-8">
+    <nav className="grid grid-cols-2 lg:grid-cols-3 pl-8 pr-8 p-6 shadow-lg gap-x-8 gap-y-2">
       <Link to={"/"}>
         <Logo size="large" variant="light" />
       </Link>
-      <div className="hidden md:block grow lg:-translate-x-[7%]">
-        <Searchbar />
-      </div>
-      <ul className="flex gap-4">
+      <ul className="flex gap-4 justify-self-end">
         <li>
           <Link to={"/store"} className="flex flex-col items-center">
             <ShopIcon className="h-6 w-6" />
@@ -31,6 +28,9 @@ function Navbar() {
           </Link>
         </li>
       </ul>
+      <div className="lg:translate-x-[7%] justify-self-center w-full max-w-[400px] col-span-2 lg:col-span-1 lg:col-start-2 lg:row-end-1">
+        <Searchbar />
+      </div>
     </nav>
   );
 }

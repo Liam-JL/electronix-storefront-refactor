@@ -9,7 +9,7 @@ type FilterBarProps = {
 
 function FilterBar({ categories, onPress, activeCategory }: FilterBarProps) {
   return (
-    <div className="grid lg:grid-cols-5 gap-4 p-4">
+    <div className="grid md:grid-cols-5 gap-4 p-4">
       {categories.map((category) => {
         return (
           <Button
@@ -17,6 +17,7 @@ function FilterBar({ categories, onPress, activeCategory }: FilterBarProps) {
             onPress={() => onPress(category)}
             defaultStyle={false}
             className={`${activeCategory === category ? "activeCategoryBtn" : "inactiveCategoryBtn"} hover:bg-accent-light hover:text-electronix-white hover:border-accent-light`}
+            key={category + "-btn"}
           />
         );
       })}

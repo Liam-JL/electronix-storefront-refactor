@@ -13,13 +13,13 @@ function Searchbar() {
   }
 
   return (
-    <form className="flex gap-2 w-full justify-center" onSubmit={handleSubmit}>
+    <form className="flex gap-2 justify-center" onSubmit={handleSubmit}>
       <input
         type="text"
         name="search"
         placeholder="Search products..."
         autoComplete="off"
-        className="border-2 border-solid rounded-xl pl-4 pr-4 w-full max-w-[500px] bg-electronix-white"
+        className="border-2 border-solid rounded-xl pl-4 pr-4 w-full bg-electronix-white"
       />
       <button type="submit" className="">
         <SearchIcon className="w-6 h-auto" />
