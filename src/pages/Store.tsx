@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router";
 import ProductCard from "../components/ProductCard";
 import { useState } from "react";
+import FilterBar from "../components/FilterBar";
 
 export type Product = {
   id: number;
@@ -14,7 +15,7 @@ export type Product = {
   thumbnail: string;
 };
 
-type Category =
+export type Category =
   | "laptops"
   | "mobile-accessories"
   | "smartphones"
@@ -35,7 +36,17 @@ function Store() {
         </p>
       </header>
       <section>
-        <div className="filter-bar"></div>
+        <FilterBar
+          categories={[
+            "all",
+            "laptops",
+            "mobile-accessories",
+            "smartphones",
+            "tablets",
+          ]}
+          onPress={setCategory}
+          activeCategory={category}
+        />
         <div className="product-grid grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center mt-4">
           {products.map((product) => {
             if (category === "all")
