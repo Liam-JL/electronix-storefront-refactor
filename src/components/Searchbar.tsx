@@ -1,15 +1,16 @@
 import { redirect } from "react-router";
 import { IoSearch as SearchIcon } from "react-icons/io5";
 import { Form } from "react-router-dom";
+import type { ActionFunctionArgs } from "react-router-dom";
 
-export const search = async ({ request }) => {
+export const search = async ({ request }: ActionFunctionArgs) => {
   const data = await request.formData();
   const submission = {
     query: data.get("search"),
   };
   const input = document.getElementById("searchBar") as HTMLInputElement;
   input.value = "";
-  return redirect(`/store?search=${encodeURIComponent(submission.query)}`);
+  return redirect(`/store?search=${submission.query}`);
 };
 
 function Searchbar() {
