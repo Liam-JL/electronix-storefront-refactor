@@ -57,7 +57,7 @@ function ProductDetails() {
 
         <p className="grow overflow-y-auto">{product.description}</p>
 
-        <footer className="border-t border-electronix-grey">
+        <footer className="border-t border-electronix-grey pt-4">
           <ItemAdder product={product}/>
         </footer>
       </article>
