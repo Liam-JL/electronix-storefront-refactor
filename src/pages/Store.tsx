@@ -1,7 +1,8 @@
-import { useLoaderData } from "react-router";
+import { useLoaderData, useLocation, useNavigate } from "react-router";
 import ProductCard from "../components/ProductCard";
 import { useState } from "react";
 import FilterBar from "../components/FilterBar";
+import Button from "../components/Button";
 
 export type Product = {
   id: number;
@@ -26,6 +27,15 @@ function Store() {
   const products = useLoaderData() as Product[];
   const [category, setCategory] = useState<Category>("all");
 
+  const { search } = useLocation();
+  const params = new URLSearchParams(search);
+  const searchTerm = params.get("search") || "";
+  const matchedProducts = products.filter((product) =>
+    product.title.toLowerCase().includes(searchTerm.toLowerCase()),
+  );
+
+  const navigate = useNavigate();
+
   return (
     <div className="store">
       <header className="text-center">
@@ -48,7 +58,17 @@ function Store() {
           activeCategory={category}
         />
         <div className="product-grid grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center mt-4">
-          {products.map((product) => {
+          {matchedProducts.length === 0 && (
+            <div className="col-span-full justify-self-center">
+              <p>No Products Found</p>
+              <Button
+                title={"Clear Search"}
+                onPress={() => navigate("/store")}
+              />
+            </div>
+          )}
+
+          {matchedProducts.map((product) => {
             if (category === "all")
               return <ProductCard key={product.id} product={product} />;
 
