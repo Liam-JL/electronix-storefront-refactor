@@ -26,7 +26,7 @@ function ProductCard({ product }: ProductCardProps) {
         <span className="text-accent font-bold text-xl">{`£${product.price}`}</span>
       </div>
 
-      <footer className="flex p-4 border-t border-electronix-grey gap-4">
+      <footer className="flex border-t border-electronix-grey w-full p-2">
         <ItemAdder product={product}/>
       </footer>
     </article>

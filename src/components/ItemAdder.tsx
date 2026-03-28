@@ -4,12 +4,12 @@ import { useState } from "react";
 import { useCart } from "../contexts/CartContext";
 
 type ItemAdderProps = {
-    product: Product
-}
+  product: Product;
+};
 
-function ItemAdder({product}: ItemAdderProps ) {
+function ItemAdder({ product }: ItemAdderProps) {
   const [currentQuantity, setCurrentQuantity] = useState(1);
-  const {addItems} = useCart();
+  const { addItems } = useCart();
 
   function increaseQuantity() {
     if (currentQuantity < 10) setCurrentQuantity(currentQuantity + 1);
@@ -21,38 +21,29 @@ function ItemAdder({product}: ItemAdderProps ) {
   }
 
   return (
-    <div className="flex p-4 gap-4">
-      <div className="quantity-wrapper grid grid-cols-3 flex-1">
-        <label className="sr-only" htmlFor={`quantity-${product.id}`}>
-          {`Quantity for: ${product.title}`}
-        </label>
-
+    <div className="flex gap-8 w-full h-10">
+      <div className="quantity-wrapper grid grid-cols-3 w-full h-full flex-1">
         <Button
           title="-"
           onPress={decreaseQuantity}
           defaultStyle={false}
           accessibilityLabel="Decrease quantity"
-          className="bg-electronix-light-grey border border-electronix-grey hover:text-accent"
+          className="w-full h-full bg-electronix-light-grey border border-electronix-grey hover:text-accent"
         />
 
-        <input
-          type="number"
-          min={1}
-          value={currentQuantity}
-          id={`quantity-${product.id}`}
-          onChange={(e) => {
-            const value = Math.max(1, Math.min(10, Number(e.target.value)));
-            setCurrentQuantity(value);
-          }}
-          className="text-center [appearance:textfield] [&::-webkit-outer-spin-button]:!appearance-none [&::-webkit-inner-spin-button]:!appearance-none [&::-webkit-outer-spin-button]:!m-0 [&::-webkit-inner-spin-button]:!m-0"
-        />
+        <span
+          className="flex justify-center items-center w-full h-full"
+          aria-label={`${product.title} quantity`}
+        >
+          {currentQuantity}
+        </span>
 
         <Button
           title="+"
           onPress={increaseQuantity}
           defaultStyle={false}
           accessibilityLabel="Increase quantity"
-          className="bg-electronix-light-grey border border-electronix-grey hover:text-accent"
+          className="w-full h-full bg-electronix-light-grey border border-electronix-grey hover:text-accent"
         />
       </div>
 
