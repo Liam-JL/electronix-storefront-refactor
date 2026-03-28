@@ -21,7 +21,7 @@ function ProductCard({ product }: ProductCardProps) {
           className="product-thumbnail"
         />
       </Link>
-      <div className="product-details p-4 grow w-full">
+      <div className="product-details p-4 grow w-full flex flex-col justify-between">
         <h2 className="font-medium">{product.title}</h2>
         <span className="text-accent font-bold text-xl">{`£${product.price}`}</span>
       </div>
