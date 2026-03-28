@@ -1,20 +1,22 @@
-import { useNavigate } from "react-router";
+import { redirect } from "react-router";
 import { IoSearch as SearchIcon } from "react-icons/io5";
+import { Form } from "react-router-dom";
+
+export const search = async ({ request }) => {
+  const data = await request.formData();
+  const submission = {
+    query: data.get("search"),
+  };
+  const input = document.getElementById("searchBar") as HTMLInputElement;
+  input.value = "";
+  return redirect(`/store?search=${encodeURIComponent(submission.query)}`);
+};
 
 function Searchbar() {
-  const navigate = useNavigate();
-
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const input = e.currentTarget.search as HTMLInputElement;
-    const searchTerm = input.value;
-    input.value = "";
-    navigate(`/store?search=${encodeURIComponent(searchTerm)}`);
-  }
-
   return (
-    <form className="flex gap-2 justify-center" onSubmit={handleSubmit}>
+    <Form className="flex gap-2 justify-center" method="post" action="/store">
       <input
+        id="searchBar"
         type="text"
         name="search"
         placeholder="Search products..."
@@ -24,7 +26,7 @@ function Searchbar() {
       <button type="submit" className="">
         <SearchIcon className="w-6 h-auto" />
       </button>
-    </form>
+    </Form>
   );
 }
 

@@ -7,6 +7,7 @@ import {
 
 import { productsLoader } from "./pages/loaders/product.loader";
 import { productDetailsLoader } from "./pages/loaders/productDetails.loader";
+import { search } from "./components/Searchbar";
 
 //Pages
 import RootLayout from "./pages/RootLayout";
@@ -21,7 +22,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Landing />} />
-      <Route path="store" element={<Store />} loader={productsLoader} />
+      <Route path="store" element={<Store />} loader={productsLoader} action={search} />
       <Route path="cart" element={<Cart />} loader={productsLoader} />
       <Route
         path="store/:id"
