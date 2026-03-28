@@ -9,7 +9,7 @@ import { Link } from "react-router";
 
 function Footer() {
   return (
-    <div className="bg-(--color-black) text-(--color-white) p-4 flex flex-col md:flex-row justify-center gap-8 md:gap-16 lg:gap-32">
+    <div className="bg-(--color-black) text-(--color-white) p-4 pl-12 pr-12 flex flex-col md:flex-row justify-center gap-8 md:gap-16 lg:gap-32">
       <section className="footer-section">
         <span className="footer-header">
           <Logo size="small" variant="dark" />
