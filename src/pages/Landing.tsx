@@ -5,7 +5,7 @@ function Landing() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center opacity-0 animate-[fade-in-up_0.6s_ease-out_forwards]">
+    <div className="flex flex-col md:flex-row items-center justify-center opacity-0 animate-[fade-in-up_0.6s_ease-out_forwards] gap-8 p-8">
       <section className="hero flex flex-1 flex-col gap-6">
         <h1 className="orbitron font-medium text-4xl/<1.2>">
           Power Up Your Life with the Latest Tech
@@ -23,8 +23,8 @@ function Landing() {
         />
       </section>
 
-      <section className="product-carousel flex flex-1 justify-center items-center max-h-full">
-          <img src="hero-image-placeholder.png" alt="Image of an iPhone" className="object-cover w-full h-full p-16 max-h-full"/>
+      <section className="product-carousel flex flex-1 justify-center items-center h-full">
+          <img src="hero-image-placeholder.png" alt="Image of an iPhone" className="object-cover w-fit h-fit max-h-120 p-16"/>
       </section>
     </div>
   );
