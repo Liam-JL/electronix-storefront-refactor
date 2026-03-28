@@ -23,7 +23,10 @@ function Searchbar() {
         autoComplete="off"
         className="border-2 border-solid rounded-xl pl-4 pr-4 w-full bg-electronix-white"
       />
-      <button type="submit" className="">
+      <button
+        type="submit"
+        className="cursor-pointer transition-all duration-200 ease-in-out hover:scale-105"
+      >
         <SearchIcon className="w-6 h-auto" />
       </button>
     </Form>

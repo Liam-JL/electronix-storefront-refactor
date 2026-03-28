@@ -21,12 +21,12 @@ function ProductCard({ product }: ProductCardProps) {
           className="product-thumbnail"
         />
       </Link>
-      <div className="product-details p-4 grow w-full">
+      <div className="product-details p-4 grow w-full flex flex-col justify-between">
         <h2 className="font-medium">{product.title}</h2>
         <span className="text-accent font-bold text-xl">{`£${product.price}`}</span>
       </div>
 
-      <footer className="flex p-4 border-t border-electronix-grey gap-4">
+      <footer className="flex border-t border-electronix-grey w-full p-2">
         <ItemAdder product={product}/>
       </footer>
     </article>

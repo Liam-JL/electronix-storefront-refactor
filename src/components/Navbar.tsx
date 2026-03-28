@@ -16,13 +16,13 @@ function Navbar() {
       <ul className="flex gap-4 justify-self-end">
         <li>
           <Link to={"/store"} className="flex flex-col items-center">
-            <ShopIcon className="h-6 w-6" />
+            <ShopIcon className="h-6 w-6 transform transition-transform duration-300 hover:scale-110" />
             <span>SHOP</span>
           </Link>
         </li>
         <li>
           <Link to={"/cart"} className="flex flex-col items-center">
-            <CartIcon className="h-6 w-6" />
+            <CartIcon className="h-6 w-6 transform transition-transform duration-300 hover:-rotate-25 hover:scale-110" />
             <span>CART</span>
             <CartChip className="absolute top-0 right-0 -translate-x-[50%] translate-y-[50%]" />
           </Link>
