@@ -57,7 +57,10 @@ export function CartProvider({ children }: CartProvderProps) {
       } else {
         return currentItems.map((item) => {
           if (item.id === id) {
-            return { ...item, quantity: item.quantity + 1 };
+            return {
+              ...item,
+              quantity: item.quantity < 10 ? item.quantity + 1 : 10,
+            };
           } else {
             return item;
           }
