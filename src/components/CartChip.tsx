@@ -9,7 +9,7 @@ function CartChip({ className = "" }: CartChipProps) {
   return (
     cartQuantity > 0 && (
       <div
-        className={`text-electronix-white bg-accent w-6 h-6 text-sm rounded-4xl flex justify-center items-center ${className}`}
+        className={`text-electronix-white bg-accent w-4 h-4 text-[0.6rem] lg:w-5 lg:h-5 lg:text-[0.8rem] rounded-4xl flex justify-center items-center ${className}`}
       >
         {cartQuantity}
       </div>

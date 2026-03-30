@@ -9,7 +9,7 @@ import CartChip from "./CartChip";
 
 function Navbar() {
   return (
-    <nav className="grid grid-cols-2 lg:grid-cols-3 pl-8 pr-8 p-6 shadow-lg gap-x-8 gap-y-2">
+    <nav className="grid grid-cols-2 lg:grid-cols-3 p-4 shadow-lg gap-x-8 gap-y-4 items-center">
       <Link to={"/"}>
         <Logo size="large" variant="light" />
       </Link>
@@ -24,7 +24,7 @@ function Navbar() {
           <Link to={"/cart"} className="flex flex-col items-center">
             <CartIcon className="h-6 w-6 transform transition-transform duration-300 hover:-rotate-25 hover:scale-110" />
             <span>CART</span>
-            <CartChip className="absolute top-0 right-0 -translate-x-[50%] translate-y-[50%]" />
+            <CartChip className="absolute top-1 right-1" />
           </Link>
         </li>
       </ul>
