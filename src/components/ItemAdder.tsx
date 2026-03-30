@@ -21,8 +21,8 @@ function ItemAdder({ product }: ItemAdderProps) {
   }
 
   return (
-    <div className="flex gap-8 w-full h-10">
-      <div className="quantity-wrapper grid grid-cols-3 w-full h-full flex-1">
+    <div className="w-full grid grid-cols-2 gap-2">
+      <div className="quantity-wrapper grid grid-cols-3">
         <Button
           title="-"
           onPress={decreaseQuantity}
