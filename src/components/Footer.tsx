@@ -30,14 +30,14 @@ function Footer() {
         <h2 className="footer-header">Useful Links</h2>
         <ul>
           <li className="footer-link">
-            <a href="#" title="Page under construction">
+            <Link to="/error" title="Error Page Example">
               Return Policy
-            </a>
+            </Link>
           </li>
           <li className="footer-link">
-            <a href="#" title="Page under construction">
+            <Link to="/error" title="Error Page Example">
               Shipping Information
-            </a>
+            </Link>
           </li>
           <li className="footer-link">
             <a href="https://logoipsum.com/">Logoipsum</a>
@@ -53,7 +53,7 @@ function Footer() {
         <ul>
           <li className="footer-link">
             <MailIcon />
-            <a href="mailto:someone@example.com">help@electronix.com</a>
+            <a href="mailto:help@electronix.com">help@electronix.com</a>
           </li>
           <li className="footer-link">
             <CallIcon />
@@ -61,7 +61,9 @@ function Footer() {
           </li>
           <li className="footer-link">
             <ChatIcon />
-            <Link to="/error">Chat With Us</Link>
+            <Link to="/error" title="Error Page Example">
+              Chat With Us
+            </Link>
           </li>
           <li className="footer-link">
             <GithubIcon />
