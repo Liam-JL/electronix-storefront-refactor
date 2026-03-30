@@ -7,27 +7,26 @@ type ProductCardProps = {
 };
 
 function ProductCard({ product }: ProductCardProps) {
-
   return (
-    <article className="max-w-75 flex flex-col items-center border border-electronix-grey bg-electronix-white rounded-xl grow h-full md:hover:-translate-y-1 hover:shadow-xl  transition-all duration-200 ease-out">
+    <article className="grid grid-rows-[4fr_1fr] h-full max-w-75 border border-electronix-grey bg-electronix-white rounded-xl md:hover:-translate-y-1 hover:shadow-xl  transition-all duration-200 ease-out">
       <Link
         to={`:${product.id}`}
         onClick={() => window.scrollTo(0, 0)}
-        className="p-4 flex"
+        className="self-center"
       >
         <img
           src={product.thumbnail}
           alt={`Image of ${product.title}`}
-          className="product-thumbnail"
+          className="product-thumbnail "
         />
       </Link>
-      <div className="product-details p-4 grow w-full flex flex-col justify-between">
-        <h2 className="font-medium">{product.title}</h2>
-        <span className="text-accent font-bold text-xl">{`£${product.price}`}</span>
-      </div>
 
-      <footer className="flex border-t border-electronix-grey w-full p-2">
-        <ItemAdder product={product}/>
+        <h2 className="font-medium px-2 text-center">{product.title}</h2>
+        <span className="text-accent font-bold text-xl text-end px-4 py-2">{`£${product.price}`}</span>
+
+
+      <footer className="flex border-t border-electronix-grey w-full p-4">
+        <ItemAdder product={product} />
       </footer>
     </article>
   );
