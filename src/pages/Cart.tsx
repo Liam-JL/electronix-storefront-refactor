@@ -55,7 +55,7 @@ function Cart() {
           </ul>
         </section>
         <aside
-          className={`bg-electronix-white border border-electronix-grey rounded-xl p-4 flex flex-col h-fit ${cartItems.length < 1 && "hidden"}`}
+          className={`bg-electronix-white border border-electronix-grey rounded-xl p-4 flex flex-col h-fit min-w-[300px] ${cartItems.length < 1 && "hidden"}`}
         >
           <h2 className="text-center p-4">Order Summary</h2>
           <div className="border-t border-b p-4">
