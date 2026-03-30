@@ -37,7 +37,7 @@ function Store() {
   const navigate = useNavigate();
 
   return (
-    <div className="store">
+    <div className="store h-full w-full max-w-[1300px]">
       <header className="text-center">
         <h1>Our Collection</h1>
         <p>
