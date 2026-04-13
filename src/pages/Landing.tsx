@@ -1,9 +1,13 @@
 import { useNavigate } from "react-router";
 import Button from "../components/Button";
 import FeaturedCarousel from "../components/FeaturedCarousel";
+import { useLoaderData } from "react-router";
+import type { Product } from "./Store";
 
 function Landing() {
   const navigate = useNavigate();
+  const selected = useLoaderData() as Product[];
+
 
   return (
     <div className="opacity-0 animate-[fade-in-up_0.6s_ease-out_forwards] text-center px-6 py-10 max-w-6xl mx-auto">
@@ -30,9 +34,8 @@ function Landing() {
 
       {/* Product Image Section */}
       <section>
-        <FeaturedCarousel />
+        <FeaturedCarousel featuredProducts={selected.slice(0, 3)} />
       </section>
-      
     </div>
   );
 }
