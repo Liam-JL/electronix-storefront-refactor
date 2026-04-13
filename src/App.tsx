@@ -21,8 +21,13 @@ import { CartProvider } from "./contexts/CartContext";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
-      <Route index element={<Landing />} />
-      <Route path="store" element={<Store />} loader={productsLoader} action={search} />
+      <Route index element={<Landing />} loader={productsLoader} />
+      <Route
+        path="store"
+        element={<Store />}
+        loader={productsLoader}
+        action={search}
+      />
       <Route path="cart" element={<Cart />} loader={productsLoader} />
       <Route
         path="store/:id"

@@ -1,12 +1,16 @@
 import { useNavigate } from "react-router";
 import Button from "../components/Button";
+import FeaturedCarousel from "../components/FeaturedCarousel";
+import { useLoaderData } from "react-router";
+import type { Product } from "./Store";
 
 function Landing() {
   const navigate = useNavigate();
+  const selected = useLoaderData() as Product[];
+
 
   return (
     <div className="opacity-0 animate-[fade-in-up_0.6s_ease-out_forwards] text-center px-6 py-10 max-w-6xl mx-auto">
-      
       {/* Hero Section */}
       <section className="flex flex-col items-center gap-6 mb-12">
         <h1 className="orbitron font-semibold text-4xl md:text-5xl leading-tight max-w-2xl">
@@ -29,25 +33,9 @@ function Landing() {
       </section>
 
       {/* Product Image Section */}
-      <section className="w-full">
-        <div className="w-full overflow-hidden">
-          
-          <img
-            src="hero-image-placeholder.png"
-            alt="Image of an iPhone"
-            className="w-full h-auto object-contain max-h-75"
-          />
-
-          {/*overlay label */}
-          <div className="flex justify-center -mt-10 mb-4">
-            <p className="text-white text-sm md:text-base bg-black/70 px-4 py-2 rounded-lg backdrop-blur-sm">
-              Featured Product
-            </p>
-          </div>
-
-        </div>
+      <section>
+        <FeaturedCarousel featuredProducts={selected.slice(0, 3)} />
       </section>
-
     </div>
   );
 }
