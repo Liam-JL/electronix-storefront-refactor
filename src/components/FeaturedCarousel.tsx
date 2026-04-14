@@ -8,12 +8,35 @@ type FeaturedCarouselProps = {
 
 function FeaturedCarousel({ featuredProducts }: FeaturedCarouselProps) {
   const [currentProduct, setCurrentProduct] = useState(0);
+
+  function handleNextBtn() {
+    const card = document.getElementById(`product-card-${currentProduct}`);
+    if (currentProduct < featuredProducts.length - 1) {
+      setCurrentProduct(currentProduct + 1)
+    } else {
+      setCurrentProduct(0)
+    }
+  }
+
+  function handlePrevBtn() {
+    const card = document.getElementById(`product-card-${currentProduct}`);
+    if (currentProduct > 0) {
+      setCurrentProduct(currentProduct - 1)
+    } else {
+      setCurrentProduct(featuredProducts.length - 1)
+    }
+  }
+
   return (
     <div className="w-full flex justify-center items-center gap-4">
-      <Button title={"<"} onPress={() => {}} className="h-10" />
+      <Button title={"<"} onPress={handlePrevBtn} className="h-10" />
       <div>
         {featuredProducts.map((product, i) => (
-          <article className={i === currentProduct ? "block" : "hidden"}>
+          <article
+            key={i}
+            id={`product-card-${i}`}
+            className={i === currentProduct ? "block" : "hidden"}
+          >
             <img
               src={product.thumbnail}
               alt={`Image of ${product.title}`}
@@ -24,7 +47,7 @@ function FeaturedCarousel({ featuredProducts }: FeaturedCarouselProps) {
           </article>
         ))}
       </div>
-      <Button title={">"} onPress={() => {}} className="h-10" />
+      <Button title={">"} onPress={handleNextBtn} className="h-10" />
     </div>
   );
 }
