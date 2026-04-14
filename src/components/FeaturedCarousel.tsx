@@ -32,27 +32,27 @@ function FeaturedCarousel({ featuredProducts }: FeaturedCarouselProps) {
   }, []);
 
   return (
-    <div className="w-full flex justify-center items-center gap-4 relative">
+    <div className="flex justify-center items-center gap-4 relative w-full">
       <Button title={"<"} onPress={handlePrevBtn} className="h-10" />
       <div className="p-1.5 rounded bg-black  text-white text-sm font-light absolute top-7 z-2 -translateX-[50%]">
         Featured
       </div>
-      <div className="bg-gray-300 p-4 rounded relative">
+      <div className="w-full bg-gray-300 p-4 rounded relative">
         {featuredProducts.map((product, i) => (
           <Link to={`/store/:${product.id}`}>
             <article
               key={i}
               id={`product-card-${i}`}
-              className={`${i === currentProduct ? "block" : "hidden"} bg-electronix-white p-4 flex flex-col justify-between gap-2 min-h-[400px]`}
+              className={`${i === currentProduct ? "block" : "hidden"} bg-electronix-white p-4 flex flex-col justify-between gap-2 items-center `}
             >
-              <div className="">
+              <div className="w-60 h-60">
                 <img
                   src={product.thumbnail}
                   alt={`Image of ${product.title}`}
-                  className="object-cover h-fit w-fit"
+                  className="object-cover h-full w-full"
                 />
               </div>
-              <section className="flex flex-col gap-4">
+              <section className="flex flex-col gap-4 w-full">
                 <h3 className="text-electronix-black text-xl text-gray-600 font-extralight">
                   {product.title}
                 </h3>
