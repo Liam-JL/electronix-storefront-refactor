@@ -32,7 +32,7 @@ function FeaturedCarousel({ featuredProducts }: FeaturedCarouselProps) {
   }, []);
 
   return (
-    <div className="flex justify-center items-center relative">
+    <div className="flex justify-center items-center relative gap-2">
 
       <Button title={"<"} onPress={handlePrevBtn} className="" />
 
