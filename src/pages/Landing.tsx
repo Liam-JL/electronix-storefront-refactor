@@ -10,9 +10,9 @@ function Landing() {
 
 
   return (
-    <div className="opacity-0 animate-[fade-in-up_0.6s_ease-out_forwards] text-center px-6 py-10 max-w-6xl mx-auto">
+    <div className="opacity-0 animate-[fade-in-up_0.6s_ease-out_forwards] text-center max-w-6xl md:p-4 flex flex-col gap-4 flex-1">
       {/* Hero Section */}
-      <section className="flex flex-col items-center gap-6 mb-12">
+      <section className="flex flex-col items-center gap-6">
         <h1 className="orbitron font-semibold text-4xl md:text-5xl leading-tight max-w-2xl">
           Power Up Your Life with the Latest Tech
         </h1>
@@ -22,7 +22,7 @@ function Landing() {
           delivery — all in one place.
         </p>
 
-        <div className="mt-2">
+        <div className="">
           <Button
             title="Shop Now"
             onPress={() => navigate("/store")}
@@ -33,7 +33,7 @@ function Landing() {
       </section>
 
       {/* Product Image Section */}
-      <section>
+      <section className="">
         <FeaturedCarousel featuredProducts={selected.slice(0, 3)} />
       </section>
     </div>

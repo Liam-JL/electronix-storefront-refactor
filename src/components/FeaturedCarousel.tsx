@@ -32,37 +32,42 @@ function FeaturedCarousel({ featuredProducts }: FeaturedCarouselProps) {
   }, []);
 
   return (
-    <div className="flex justify-center items-center gap-4 relative w-full">
-      <Button title={"<"} onPress={handlePrevBtn} className="h-10" />
-      <div className="p-1.5 rounded bg-black  text-white text-sm font-light absolute top-7 z-2 -translateX-[50%]">
+    <div className="flex justify-center items-center relative">
+
+      <Button title={"<"} onPress={handlePrevBtn} className="" />
+
+      <div className="rounded bg-black text-white text-sm font-light absolute top-0 p-1">
         Featured
       </div>
-      <div className="w-full bg-gray-300 p-4 rounded relative">
+
+      <div className="bg-gray-300 p-4 rounded">
+
         {featuredProducts.map((product, i) => (
-          <Link to={`/store/:${product.id}`}>
-            <article
+          <article
               key={i}
               id={`product-card-${i}`}
-              className={`${i === currentProduct ? "block" : "hidden"} bg-electronix-white p-4 flex flex-col justify-between gap-2 items-center `}
+              className={`flex flex-col min-h-80 ${i === currentProduct ? "block" : "hidden"} bg-white p-2`} 
             >
-              <div className="w-60 h-60">
+              
+          <Link to={`/store/:${product.id}`} className="flex-1 basis-0">
                 <img
                   src={product.thumbnail}
                   alt={`Image of ${product.title}`}
-                  className="object-cover h-full w-full"
+                  className="w-full h-full object-cover"
                 />
-              </div>
-              <section className="flex flex-col gap-4 w-full">
-                <h3 className="text-electronix-black text-xl text-gray-600 font-extralight">
+          </Link>
+              
+
+              <section className="flex-1 basis-0 flex flex-col justify-end gap-4">
+                <h3 className="text-gray-600 font-light">
                   {product.title}
                 </h3>
-                <span className="text-accent font-extralight border border-accent rounded-2xl p-1.5 text-sm">{`£${product.price}`}</span>
+                <span className="text-accent font-light text-sm border border-accent rounded-2xl p-0.5">{`£${product.price}`}</span>
               </section>
             </article>
-          </Link>
         ))}
       </div>
-      <Button title={">"} onPress={handleNextBtn} className="h-10" />
+      <Button title={">"} onPress={handleNextBtn} className="" />
     </div>
   );
 }
